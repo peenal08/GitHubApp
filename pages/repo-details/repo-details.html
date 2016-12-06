@@ -1,0 +1,23 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{repo?.name}} Details</ion-title>
+    <ion-buttons end>
+      <button ion-button icon-only (click)="pushToHome()">
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+    <ion-list>
+      <ion-item text-wrap *ngIf="repo?.description"><strong>Description : </strong>{{repo?.description}}</ion-item> 
+      <ion-item><strong>URL : </strong><a href="{{repo?.html_url}}">{{repo?.html_url}}</a></ion-item>
+      <ion-item><strong>Created On :</strong> {{repo?.created_at | date: 'dd MMM, yyyy @ H:mm'}}</ion-item>
+      <ion-item><strong>Last Updated On :</strong> {{repo?.updated_at | date: 'dd MMM, yyyy @ H:mm'}}</ion-item>
+    </ion-list>
+</ion-content>

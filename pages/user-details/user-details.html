@@ -1,0 +1,51 @@
+
+<ion-header>
+
+  <ion-navbar>
+    <ion-title>{{login}}'s details</ion-title>
+    
+    <ion-buttons end>
+      <button ion-button icon-only (click)="pushToHome()">
+        <ion-icon name="home"></ion-icon>
+      </button>
+    </ion-buttons>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  
+  <img [src]="user?.avatar_url" width="200px" height="200px" style="margin-left: 25%;" >   
+   
+  <ion-list>
+    <ion-item *ngIf="user?.name">
+      <ion-label>Name</ion-label>
+      <ion-label item-right>{{user?.name}}</ion-label>
+    </ion-item>
+    <ion-item *ngIf="user?.email"> 
+      <ion-label>Email</ion-label>
+      <ion-label item-right>{{user?.email}}</ion-label>
+    </ion-item>
+    <ion-item *ngIf="user?.location">
+      <ion-label>Location</ion-label>
+      <ion-label item-right>{{user?.location}}</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-label>Followers</ion-label>
+      <ion-badge item-right>{{user?.followers}}</ion-badge>
+    </ion-item>
+     <ion-item>
+      <ion-label>Following</ion-label>
+      <ion-badge item-right>{{user?.following}}</ion-badge>
+    </ion-item>
+     <button ion-item (click)="getRepositories(user.login)">
+      <ion-label><strong>Repositories</strong></ion-label>
+      <ion-badge item-right style="background-color: green;">{{user?.public_repos}}</ion-badge>      
+     </button>
+     <ion-item>
+      <ion-label>Gists</ion-label>
+      <ion-badge item-right>{{user?.public_gists}}</ion-badge>
+    </ion-item>
+  </ion-list>    
+</ion-content>
